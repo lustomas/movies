@@ -53,7 +53,7 @@ def get_series():
 def search(search_fraze):
     for element in library:
         if element.title == search_fraze:
-            print(element)
+            return element
 
 def generate_views():
     item = random.choice(list(library))
