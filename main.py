@@ -38,16 +38,16 @@ library = [pulp_fiction, simpsons_1, simpsons_2, simpsons_3, simpsons_4, simpson
 def get_movies():
     movies = []
     for movie in library:
-        if isinstance(movie, Movies) == True:
+        if isinstance(movie, Series) == False:
             movies.append(movie)
-    return sorted(movies)
+    return movies
 
 def get_series():
     series = []
     for serie in library:
         if isinstance(serie, Series) == True:
             series.append(serie)
-    return sorted(series)
+    return series
 
 
 def search(search_fraze):
@@ -66,23 +66,30 @@ def ten_times():
 
 def top_titles(n):
     print("Top titles:")
-    print(sorted(library, key=lambda x:x.views, reverse = True) [:n])
+    return sorted(library, key=lambda x:x.views, reverse = True) [:n]
 
+print(pulp_fiction)
 print(pulp_fiction.views)
 pulp_fiction.play()
 print(pulp_fiction.views)
 
-print(pulp_fiction)
+
 print(simpsons_5)
+print(simpsons_5.views)
 simpsons_5.play()
 print(simpsons_5.views)
 
-print(get_movies())
-
 generate_views()
-
 ten_times()
 
-top_titles(3)
+for i in library:
+    print(i)
+    print(i.views)
 
-search('Pulp Fiction')
+print(search('Pulp Fiction'))
+
+print(get_movies())
+
+print(get_series())
+
+print(top_titles(3))
