@@ -36,15 +36,15 @@ simpsons_5 = Series(title='The Simpsons', year='1989', genre='animation, comedy'
 library = [pulp_fiction, simpsons_1, simpsons_2, simpsons_3, simpsons_4, simpsons_5]
 
 def get_movies():
+    movies = []
     for movie in library:
-        movies = []
         if isinstance(movie, Movies) == True:
             movies.append(movie)
     return sorted(movies)
 
 def get_series():
+    series = []
     for serie in library:
-        series = []
         if isinstance(serie, Series) == True:
             series.append(serie)
     return sorted(series)
