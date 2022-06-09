@@ -15,6 +15,8 @@ class Movies:
     def __str__(self):
         return f'{self.title} ({self.year})'
 
+    __repr__ = __str__
+
 class Series(Movies):
 
     def __init__(self, episode, season, *args, **kwargs):
@@ -24,6 +26,8 @@ class Series(Movies):
 
     def __str__(self):
         return f'{self.title} S{self.season}E{self.episode}'
+
+    __repr__ = __str__
   
 pulp_fiction = Movies(title='Pulp Fiction', year='1994', genre='crime, drama')
 
@@ -37,6 +41,7 @@ library = [pulp_fiction, simpsons_1, simpsons_2, simpsons_3, simpsons_4, simpson
 
 def get_movies():
     movies = []
+    print("Movies:")
     for movie in library:
         if isinstance(movie, Series) == False:
             movies.append(movie)
@@ -44,6 +49,7 @@ def get_movies():
 
 def get_series():
     series = []
+    print("Series:")
     for serie in library:
         if isinstance(serie, Series) == True:
             series.append(serie)
@@ -88,8 +94,13 @@ for i in library:
 
 print(search('Pulp Fiction'))
 
-print(get_movies())
+movies = movies = get_movies()
+for movie in movies:
+    print(movie)
 
-print(get_series())
+series = series = get_series()
+for serie in series:
+    print(serie)
 
 print(top_titles(3))
+
